@@ -18,3 +18,7 @@ It can be enabled by default for `fzf` if you set the following environment vari
 ```bash
 export FZF_DEFAULT_COMMAND="rg --files"
 ```
+
+Here is what it looks like (some colors in vim went missing though...):
+
+[![Search plugin in vim](https://asciinema.org/a/JBepEOiwov6fHSYxL8Rsv5sLN.png)](https://asciinema.org/a/JBepEOiwov6fHSYxL8Rsv5sLN)
