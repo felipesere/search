@@ -11,13 +11,19 @@ let g:loaded_search_plugin = 1
 
 command! -bang -nargs=* Search
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>).' || true', 1,
+  \    fzf#vim#with_preview('right:50%', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=* SearchH
+  \ call fzf#vim#grep(
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>).' || true', 1,
   \    fzf#vim#with_preview('right:50%', '?'),
   \   <bang>0)
 
 command! -bang -nargs=* FindUnderCursor
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(expand('<cword>')), 1,
+      \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(expand('<cword>')).' || true', 1,
       \    fzf#vim#with_preview('right:50%', '?'),
       \   <bang>0)
 
